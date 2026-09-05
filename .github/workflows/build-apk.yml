@@ -1,7 +1,5 @@
 name: Build APK
 
-# Builds a debug APK on every push, and lets you trigger it manually
-# from the Actions tab (useful when you just want a fresh build).
 on:
   push:
     branches: [ main, master ]
@@ -27,6 +25,8 @@ jobs:
 
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.9'
 
       - name: Build debug APK
         run: gradle assembleDebug
